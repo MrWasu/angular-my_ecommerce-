@@ -2,8 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   templateUrl: './shop-page.component.html',
-  styles: [
-  ]
+  styleUrls: [ './shop-page.component.css']
 })
 export class ShopPageComponent {
 

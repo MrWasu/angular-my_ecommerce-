@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ChekoutPageComponent } from './pages/chekout-page/chekout-page.component';
+import { SideMenuComponent } from '../ui/components/sidebar/sidebar.component';
 
 
 
@@ -8,10 +9,10 @@ import { ChekoutPageComponent } from './pages/chekout-page/chekout-page.componen
 
 @NgModule({
   declarations: [
-  
     ChekoutPageComponent
   ],
   imports: [
+    SideMenuComponent,
     CommonModule
   ]
 })

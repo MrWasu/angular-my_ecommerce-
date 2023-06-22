@@ -1,0 +1,11 @@
+li {
+  cursor: pointer;
+  transition: 0.2s all;
+}
+
+
+ul {
+  background-color: red;
+  position: relative;
+  height: 100vh;
+}

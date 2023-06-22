@@ -7,7 +7,7 @@ import { ShopPageComponent } from './shop/pages/shop-page/shop-page.component';
 import { UserPanelPageComponent } from './user-panel/pages/user-panel-page/user-panel-page.component';
 
 const routes: Routes = [
-
+  //! lazyload??
   {
     path: 'auth',
     component: AuthPageComponent

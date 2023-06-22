@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PaymentPageComponent } from './pages/payment-page/payment-page.component';
+import { SideMenuComponent } from '../ui/components/sidebar/sidebar.component';
 
 
 
@@ -9,7 +10,8 @@ import { PaymentPageComponent } from './pages/payment-page/payment-page.componen
     PaymentPageComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    SideMenuComponent
   ]
 })
 export class PaymentModule { }

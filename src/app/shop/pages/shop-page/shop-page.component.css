@@ -1,0 +1,8 @@
+#div-group {
+    display:flex;
+}
+
+side-menu {
+    width: 20%;
+    min-height: 100vh;
+}
