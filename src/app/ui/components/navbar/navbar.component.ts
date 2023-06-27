@@ -13,4 +13,8 @@ export class NavbarComponent {
 
   constructor(public authService: AuthService) { }
 
+  toggleAuthStatus() {
+    this.authService.toggleAuthStatus();
+  }
+
 }

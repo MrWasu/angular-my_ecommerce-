@@ -5,11 +5,14 @@ import { ChekoutPageComponent } from './checkout/pages/chekout-page/chekout-page
 import { PaymentPageComponent } from './payment/pages/payment-page/payment-page.component';
 import { ShopPageComponent } from './shop/pages/shop-page/shop-page.component';
 import { UserPanelPageComponent } from './user-panel/pages/user-panel-page/user-panel-page.component';
+import { isNotAuthenticatedGuard } from './auth/guards/is-not-authenticated.guard';
+import { isAuthenticatedGuard } from './auth/guards/is-authenticated.guard';
 
 const routes: Routes = [
   //! lazyload??
   {
     path: 'auth',
+    canActivate: [isNotAuthenticatedGuard],
     component: AuthPageComponent
   },
   {
@@ -18,6 +21,7 @@ const routes: Routes = [
   },
   {
     path: 'payment',
+    canActivate: [isAuthenticatedGuard],
     component: PaymentPageComponent
   },
   {
@@ -26,6 +30,7 @@ const routes: Routes = [
   },
   {
     path: 'user-panel',
+    canActivate: [isAuthenticatedGuard],
     component: UserPanelPageComponent
   },
   {

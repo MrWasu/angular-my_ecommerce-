@@ -6,8 +6,20 @@ import { AuthStatus } from '../interfaces/auth-status.enum';
 })
 export class AuthService {
 
-  private _authStatus = signal<AuthStatus>(AuthStatus.checking);
-  public authStatus = computed(() => this._authStatus());
+  private _authStatus = <AuthStatus>AuthStatus.authenticated;
+  public authStatus = this._authStatus;
 
-  constructor() { }
+  constructor() {
+    console.log(this.authStatus)
+  }
+
+  public toggleAuthStatus(): void {
+    if (this._authStatus === <AuthStatus>AuthStatus.authenticated) {
+      this._authStatus = AuthStatus.notAuthenticated;
+      this.authStatus = this._authStatus;
+    } else {
+      this._authStatus = AuthStatus.authenticated;
+      this.authStatus = this._authStatus;
+    }
+  }
 }

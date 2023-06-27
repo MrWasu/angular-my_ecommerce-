@@ -1,7 +1,9 @@
-
 <div id="navbar">
- 
-    <h3>Estado de autenticación: {{ authService.authStatus() }}</h3>
+
+    <h3>Estado de autenticación: {{ authService.authStatus }}</h3>
+
+    <button (click)="toggleAuthStatus()">
+        Cambiar Sesión
+    </button>
 
 </div>
-
