@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AuthPageComponent } from './auth/page/auth-page/auth-page.component';
 import { ChekoutPageComponent } from './checkout/pages/chekout-page/chekout-page.component';
 import { PaymentPageComponent } from './payment/pages/payment-page/payment-page.component';
 import { ShopPageComponent } from './shop/pages/shop-page/shop-page.component';
@@ -13,7 +12,7 @@ const routes: Routes = [
   {
     path: 'auth',
     canActivate: [isNotAuthenticatedGuard],
-    component: AuthPageComponent
+    loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule),
   },
   {
     path: 'checkout',
