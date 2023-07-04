@@ -9,6 +9,8 @@ import { UserPanelModule } from './user-panel/user-panel.module';
 import { ShopModule } from './shop/shop.module';
 import { CheckoutModule } from './checkout/checkout.module';
 import { PaymentModule } from './payment/payment.module';
+import { ModalComponent } from './ui/components/modal/modal.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -22,7 +24,8 @@ import { PaymentModule } from './payment/payment.module';
     ShopModule,
     UserPanelModule,
     CheckoutModule,
-    PaymentModule
+    PaymentModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
