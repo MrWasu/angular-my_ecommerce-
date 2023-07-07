@@ -9,11 +9,13 @@ import { AuthLayoutComponent } from './layout/auth-layout/auth-layout.component'
 import { SideMenuComponent } from '../ui/components/sidebar/sidebar.component';
 
 
+
 @NgModule({
   declarations: [
     LoginPageComponent,
     RegisterPageComponent,
-    AuthLayoutComponent
+    AuthLayoutComponent,
+
   ],
   imports: [
     CommonModule,

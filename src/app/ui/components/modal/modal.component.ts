@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {MatDialog, MatDialogRef, MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
+import { LoginComponent } from 'src/app/auth/components/login/login.component';
 
 /**
  * @title Dialog Animations
@@ -28,7 +29,7 @@ export class ModalComponent {
   selector: 'dialog-animations-example-dialog',
   templateUrl: './modal.component.html',
   standalone: true,
-  imports: [MatDialogModule, MatButtonModule],
+  imports: [MatDialogModule, MatButtonModule, LoginComponent],
 })
 export class DialogAnimationsExampleDialog {
   constructor(public dialogRef: MatDialogRef<DialogAnimationsExampleDialog>) {}
