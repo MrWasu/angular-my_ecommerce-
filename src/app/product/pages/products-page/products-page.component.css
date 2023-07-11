@@ -1,0 +1,45 @@
+#div-main {
+    display: flex;
+}
+
+side-menu {
+    width: 20%;
+    min-height: 100vh;
+}
+
+.product-details {
+  display: flex;
+}
+
+.product-images {
+  margin-right: 20px;
+}
+
+.main-image {
+  width: 300px;
+  height: auto;
+}
+
+.thumbnail-images {
+  display: flex;
+  margin-top: 10px;
+}
+
+.thumbnail-images img {
+  width: 60px;
+  height: auto;
+  margin-right: 10px;
+}
+
+.product-info {
+  flex-grow: 1;
+}
+
+.quantity-selector {
+  margin-top: 10px;
+}
+
+.shipping-details,
+.warranty-details {
+  margin-top: 20px;
+}

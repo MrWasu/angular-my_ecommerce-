@@ -6,6 +6,7 @@ import { ShopPageComponent } from './shop/pages/shop-page/shop-page.component';
 import { UserPanelPageComponent } from './user-panel/pages/user-panel-page/user-panel-page.component';
 import { isNotAuthenticatedGuard } from './auth/guards/is-not-authenticated.guard';
 import { isAuthenticatedGuard } from './auth/guards/is-authenticated.guard';
+import { ProductsPageComponent } from './product/pages/products-page/products-page.component';
 
 const routes: Routes = [
   //! lazyload??
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
     path: 'shop',
     component: ShopPageComponent
+  },
+  {
+    path: 'product',
+    component: ProductsPageComponent
   },
   {
     path: 'user-panel',

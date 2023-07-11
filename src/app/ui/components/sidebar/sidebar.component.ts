@@ -23,7 +23,8 @@ export class SideMenuComponent {
     { route: '/checkout', name: 'Checkout' },
     { route: '/payment', name: 'Payment' },
     { route: '/shop', name: 'Shop' },
-    { route: '/user-panel', name: 'User Panel' }
+    { route: '/user-panel', name: 'User Panel' },
+    { route: '/product', name: 'Product' }
   ];
 
 }

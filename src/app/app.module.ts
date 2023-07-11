@@ -11,6 +11,7 @@ import { CheckoutModule } from './checkout/checkout.module';
 import { PaymentModule } from './payment/payment.module';
 import { ModalComponent } from './ui/components/modal/modal.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ProductModule } from './product/product.module';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     UserPanelModule,
     CheckoutModule,
     PaymentModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ProductModule
   ],
   providers: [],
   bootstrap: [AppComponent]
