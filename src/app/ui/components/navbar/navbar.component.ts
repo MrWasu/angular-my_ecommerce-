@@ -13,6 +13,8 @@ import { ModalComponent } from '../modal/modal.component';
 })
 export class NavbarComponent {
 
+  // componente de test
+
   constructor(public authService: AuthService) { }
 
   toggleAuthStatus() {
