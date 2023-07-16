@@ -1,26 +1,15 @@
-import { Component, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-  templateUrl: './products-page.component.html',
-  styleUrls: ['./products-page.component.css']
+    selector: 'app-products',
+    templateUrl: './products.component.html',
+    styleUrls: ['./products.component.css']
 })
-export class ProductsPageComponent {
-  product: any = {
-    name: '',
-    price: 0,
-    seller: '',
-    brand: '',
-    image: '',
-    additionalImages: [],
-    shippingDetails: '',
-    warrantyDetails: ''
-  };
-  selectedQuantity: number = 1;
+export class ProductsComponent implements OnInit {
 
-  addToCart() {
-    // Lógica para agregar el producto al carrito de compras
-  }
-  buyNow() {
-    // Lógica para agregar el producto al carrito de compras
-  }
+    constructor() { }
+
+    ngOnInit(): void {
+    }
+
 }
