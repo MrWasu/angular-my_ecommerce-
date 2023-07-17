@@ -8,7 +8,6 @@ import { AllProductsComponent } from './all-products/all-products.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { ProductsComponent } from './products.component';
 import { FilterPipe } from './pipe/filter.pipe';
-
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { ProductComponent } from './product/product.component';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';

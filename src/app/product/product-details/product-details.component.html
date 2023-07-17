@@ -1,0 +1,152 @@
+<section class="bg-warning padding-y-sm rounded">
+    <div class="container">
+
+        <ol class="breadcrumb ondark mb-0">
+            <li class="breadcrumb-item">
+                <a routerLink="/products">Home</a>
+            </li>
+            <li class="breadcrumb-item">
+                <a routerLink="/products">Productos</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">
+                John Doe
+            </li>
+        </ol>
+    </div>
+</section>
+
+<section class="padding-y">
+    <div class="container">
+        <div class="row">
+            <aside class="col-lg-4">
+                <owl-carousel-o [options]="slider1Settings" #myCarousel>
+                    <ng-container *ngFor="let slide of product?.images">
+                        <ng-template carouselSlide [id]="slide?.id">
+                            <figure class="zoom-image" style="background-image: url({{slide}});"
+                                [style.backgroundPosition]="backgroundPos" (mousemove)="ZoomImage($event)">
+                                <img class="rounded" src="{{slide}}" alt="clothes"
+                                    onerror="this.onerror = null;this.src='assets/images/ImageNotFound.png'; imgNotFounded=true">
+                            </figure>
+                        </ng-template>
+                    </ng-container>
+                </owl-carousel-o>
+                <owl-carousel-o id="controll" [options]="slider2Settings" (dragging)="nextSlide($event)"
+                    *ngIf="!imgNotFounded">
+                    <ng-container *ngFor="let slide of product?.images">
+                        <ng-template carouselSlide [id]="slide?.id">
+                            <img class="rounded" width="97" src="{{slide}}" alt="clothes"
+                                onerror="this.onerror = null;this.src='assets/images/ImageNotFound.png'">
+                        </ng-template>
+                    </ng-container>
+                </owl-carousel-o>
+            </aside>
+            <main class="col-lg-6">
+                <article class="ps-lg-3">
+                    <h4 class="title text-dark">
+                        {{product?.title }}
+
+                    </h4>
+                    <div class="rating-wrap my-3">
+                        <ul class="rating-stars">
+                            <li style="width:80%" class="stars-active">
+                                <img src="assets/images/stars-active.svg" alt="">
+                            </li>
+                            <li>
+                                <img src="assets/images/starts-disable.svg" alt="">
+                            </li>
+                        </ul>
+                        <b class="label-rating text-warning"> 4.5</b>
+                        <i class="dot"></i>
+                        <span class="label-rating text-muted">
+                            <i class="fa fa-shopping-basket"></i> 154 pedidos
+                        </span>
+                        <i class="dot"></i>
+                        <span class="label-rating text-success">En stock</span>
+                    </div>
+
+
+                    <div class="mb-3">
+                        <span class="price h5">${{product?.price}}</span>
+                        <span class="text-muted">/per box</span>
+                    </div>
+
+                    <p>
+                        {{product?.description || loremText }}
+                    </p>
+
+                    <dl class="row">
+                        <dt class="col-3">Tipo:</dt>
+                        <dd class="col-9">{{product?.category?.name}}</dd>
+
+                        <dt class="col-3">Color:</dt>
+                        <dd class="col-9">Brown</dd>
+
+                        <dt class="col-3">Material:</dt>
+                        <dd class="col-9">Cotton, Jeans </dd>
+
+                        <dt class="col-3">Marca:</dt>
+                        <dd class="col-9">Reebook </dd>
+                    </dl>
+
+                    <hr>
+
+                    <div class="row mb-4">
+                        <div class="col-md-4 col-6 mb-2">
+                            <label class="form-label">Size</label>
+                            <select class="form-select">
+                                <option>Small</option>
+                                <option>Medium</option>
+                                <option>Large</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4 col-6 mb-3" *ngIf="productInCartList">
+                            <label class="form-label d-block">Cantidad</label>
+                            <div class="input-group input-spinner">
+                                <div class="quantity-selector">
+                                    <button type="button" class="btn  btn-quantity"
+                                        (click)="updateCartItemQuantity(quantity , product  , '-')"
+                                        [disabled]=" quantity == 1">
+                                        <span>-</span>
+                                    </button>
+                                    <div class="quantity-number">{{quantity}}</div>
+                                    <button type="button" class="btn btn-quantity"
+                                        (click)="updateCartItemQuantity(quantity! , product  , '+')">
+                                        <span>+</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div> 
+                    </div>
+
+                    <a href="#" class="btn  btn-warning me-2"
+                        (click)="$event.preventDefault(); addProductToCart(product)">
+                        <i class="me-1 fa fa-shopping-basket"></i>
+                        {{productInCartList ? 'Added to cart':'Add to cart'}}
+                    </a>
+                    <a href="#" (click)="$event.preventDefault(); addProductToWishList(product)" *ngIf="!isProductInWishList" class="btn  btn-light me-2">
+                        <i class="fa-regular fa-heart text-danger"></i>
+                        Save
+                    </a>
+                    <a href="#" (click)="$event.preventDefault(); addProductToWishList(product)" *ngIf="isProductInWishList" class="btn  btn-light me-2">
+                        <i  class="me-1 fa fa-heart text-danger"></i> Guardado
+                    </a>
+
+                </article>
+            </main>
+        </div>
+
+        <div class="row my-5 position-relative"> 
+            <div class="title text-md-center mb-2">
+                <span>best match</span>
+                <h4 class="text-dark">Productos relacionados</h4>
+            </div>
+            <owl-carousel-o [options]="slider3Settings" #myCarousel>
+                <ng-container class="col-md-2 col-6" *ngFor="let item of categoryProducts">
+                    <ng-template carouselSlide [id]="item.id">
+                        <app-product [product]="item"></app-product>
+                    </ng-template>
+                </ng-container>
+            </owl-carousel-o>
+        </div>
+    </div>
+</section> 
