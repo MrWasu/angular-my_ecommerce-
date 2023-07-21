@@ -78,6 +78,4 @@ export class CheckoutPageComponent implements OnInit {
     this.getTotalPrice();
     this.initCheckoutForm();
   }
-
-
 }

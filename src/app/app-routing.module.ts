@@ -1,50 +1,61 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { ChekoutPageComponent } from './checkout/pages/chekout-page/chekout-page.component';
-import { PaymentPageComponent } from './payment/pages/payment-page/payment-page.component';
-import { ShopPageComponent } from './shop/pages/shop-page/shop-page.component';
-import { UserPanelPageComponent } from './user-panel/pages/user-panel-page/user-panel-page.component';
-import { isNotAuthenticatedGuard } from './auth/guards/is-not-authenticated.guard';
-import { isAuthenticatedGuard } from './auth/guards/is-authenticated.guard';
-import { ProductsPageComponent } from './product/pages/products-page/products-page.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-const routes: Routes = [
-  //! lazyload??
-  {
-    path: 'auth',
-    canActivate: [isNotAuthenticatedGuard],
-    loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule),
-  },
-  {
-    path: 'checkout',
-    component: ChekoutPageComponent
-  },
-  {
-    path: 'payment',
-    canActivate: [isAuthenticatedGuard],
-    component: PaymentPageComponent
-  },
-  {
-    path: 'shop',
-    component: ShopPageComponent
-  },
-  {
-    path: 'product',
-    component: ProductsPageComponent
-  },
-  {
-    path: 'user-panel',
-    canActivate: [isAuthenticatedGuard],
-    component: UserPanelPageComponent
-  },
-  {
-    path: '**',
-    redirectTo: 'shop'
-  }
-];
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HotToastModule } from '@ngneat/hot-toast';
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { HeaderComponent } from './views/layout/header/header.component';
+import { FooterComponent } from './views/layout/footer/footer.component';
+import { ErrorPageComponent } from './views/pages/error-page/error-page.component';
+import { BaseComponent } from './views/layout/base/base.component';
+import { CartService } from './views/pages/services/cart.service';
+import { WishlistService } from './views/pages/services/wishlist.service';
+import { JwtInterceptor } from './views/pages/auth/services/jwt.interceptor';
+import { AuthService } from './views/pages/auth/services/auth.service';
+import { LocalstorageService } from './views/pages/auth/services/localstorage.service';
+import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { SharedModule } from './views/shared/shared.module';
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+    FooterComponent,
+    ErrorPageComponent,
+    BaseComponent,
+  ],
+  imports: [
+    BrowserAnimationsModule,
+    NoopAnimationsModule,
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    SharedModule,
+    HotToastModule.forRoot()
+  ],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }
+  ],
+  bootstrap: [AppComponent]
 })
-export class AppRoutingModule { }
+export class AppModule {
+  constructor
+  (
+    private _cartService: CartService,
+    private _wishlistService: WishlistService,
+    private _authService: AuthService,
+    private _localstorageService: LocalstorageService
+  )
+  {
+    _wishlistService.initWishlistLocalStorage();
+    _cartService.initCartLocalStorage();
+    if(_localstorageService.getToken()) {
+      _authService.startRefreshTokenTimer();
+    }
+  }
+}
