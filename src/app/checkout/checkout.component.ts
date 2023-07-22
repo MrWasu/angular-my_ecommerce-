@@ -9,8 +9,7 @@ import { CartService } from '../services/cart.service';
 })
 
 export class CheckoutComponent implements OnInit {
-
-
+    
     constructor() { }
     ngOnInit(): void { }
 

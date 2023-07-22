@@ -57,5 +57,6 @@ export class AppModule {
     if(_localstorageService.getToken()) {
       _authService.startRefreshTokenTimer();
     }
+  
   }
 }
