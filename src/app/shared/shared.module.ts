@@ -16,7 +16,6 @@ const COMPONENTS = [
 @NgModule({
   imports: [
     CommonModule,
-    
   ],
   declarations: [...COMPONENTS],
   exports: [...COMPONENTS],
