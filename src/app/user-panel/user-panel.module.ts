@@ -1,17 +1,46 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { UserPanelPageComponent } from './pages/user-panel-page/user-panel-page.component';
-import { SideMenuComponent } from '../ui/components/sidebar/sidebar.component';
+import { RouterModule, Routes } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-
+import { UserComponent } from './user.component';
+import { ProfileComponent } from './profile/profile.component';
+import { WishlistComponent } from './wishlist/wishlist.component';
+import { SharedModule } from '../../shared/shared.module';
+const routes: Routes = [
+  {
+    path: '',
+    component: UserComponent,
+    children: [
+      {
+        path: '',
+        redirectTo: 'profile',
+        pathMatch: 'full',
+      },
+      {
+        path: 'profile',
+        component: ProfileComponent,
+      },
+      {
+        path: 'wishlist',
+        component: WishlistComponent,
+      },
+    ],
+  },
+];
 
 @NgModule({
   declarations: [
-    UserPanelPageComponent
+    UserComponent,
+    ProfileComponent,
+    WishlistComponent
   ],
   imports: [
     CommonModule,
-    SideMenuComponent
+    FormsModule,
+    SharedModule,
+    ReactiveFormsModule,
+    RouterModule.forChild(routes),
   ]
 })
-export class UserPanelModule { }
+export class UserModule { }
