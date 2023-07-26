@@ -23,7 +23,7 @@ const routes: Routes = [
       },
       {
         path: 'wishlist',
-        component: WishlistComponent,
+        component: WishlistComponent
       },
     ],
   },
