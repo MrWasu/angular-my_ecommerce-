@@ -40,7 +40,7 @@ const routes: Routes = [
     LoginComponent,
     AuthComponent,
     ForgetPasswordComponent,
-    RegisterComponent
+    RegisterComponent,
   ],
   imports: [
     CommonModule,

@@ -25,7 +25,7 @@ import { SharedModule } from './views/shared/shared.module';
     HeaderComponent,
     FooterComponent,
     ErrorPageComponent,
-    BaseComponent,
+    BaseComponent
   ],
   imports: [
     BrowserAnimationsModule,

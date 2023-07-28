@@ -1,0 +1,108 @@
+<div id="main-wrapper" class="form-login-register">
+    <div class="container-fluid px-0">
+        <div class="row g-0 min-vh-100">
+            <div class="col-md-6 col-lg-7 bg-light">
+                <div class="hero-wrap d-flex align-items-center h-100">
+                    <div class="hero-mask opacity-8"></div>
+                    <div class="hero-bg hero-bg-scroll"
+                        style="background-image:url('assets/images/login-bg.jpg');">
+                    </div>
+                    <div class="hero-content mx-auto w-100 h-100 d-flex flex-column">
+                        <div class="container">
+                            <div class="row g-0 mt-5">
+                                <div class="col-11 col-md-10 col-lg-9 mx-auto">
+                                    <h1 class="text-13 text-white fw-600 mb-4">
+                                        
+Para mantenerse conectado con la tienda más grande del mundo.
+                                    </h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-5 d-flex flex-column align-items-center">
+                <div class="container pt-4">
+                    <div class="row g-0">
+                        <div class="col-11 col-md-10 col-lg-9 mx-auto">
+                            <div class="logo">
+                                <a class="fw-600 text-6 text-dark" routerLink="/" title="Store">
+                                    Tienda
+                                    <i class="fa-solid fa-cart-shopping"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container my-auto py-5">
+                    <div class="row g-0">
+                        <div class="col-11 col-md-10 col-lg-9 mx-auto">
+                            <h3 class="text-12 mb-4">Registrarme</h3>
+                            <form id="signupForm"  [formGroup]="registerFormGroup">
+                                <label class="form-label fw-500" for="fullName">Nombre y apellido</label>
+                                <div [classList]="registerForm.name.invalid && isSubmitted?'input-group':'mb-3 input-group'">
+                                    <input type="text" class="form-control bg-light border-light" id="fullName"
+                                    [class.is-invalid]="registerForm.name.invalid && isSubmitted"
+                                        placeholder="Full Name" formControlName="name">
+                                    <span class="input-group-text text-muted">
+                                        <i class="fas fa-user"></i>
+                                    </span>
+                                </div>
+                                <small *ngIf="registerForm.name.invalid && isSubmitted" class="d-block text-danger">
+                                    Nombre es obligatorio
+                                </small>
+                                <label class="form-label fw-500" for="emailAddress">Correo electronico</label>
+                                <div [classList]="registerForm.email.invalid && isSubmitted?'input-group':'mb-3 input-group'">
+                                    <input type="email" class="form-control bg-light border-light" id="emailAddress"
+                                    [class.is-invalid]="registerForm.email.invalid && isSubmitted"
+                                         placeholder="Email Address" formControlName="email">
+                                    <span class="input-group-text text-muted">
+                                        <i class="fas fa-envelope"></i>
+                                    </span>
+                                </div>
+                                <small *ngIf="registerForm.email.invalid && isSubmitted" class=" d-block text-danger">
+                                    <span *ngIf="registerForm.email.errors?.required">Email es obligatorio</span>
+                                    <span *ngIf="registerForm.email.errors?.email">Email no valido</span>
+                                </small>
+                                <label class="form-label fw-500" for="loginPassword">Contraseña</label>
+                                <div [classList]="registerForm.password.invalid && isSubmitted?'input-group':'mb-3 input-group'">
+                                    <input [type]="passwordVisible?'text':'password'"
+                                        class="form-control form-control-lg bg-light border-light" id="loginPassword"
+                                        [class.is-invalid]="registerForm.password.invalid && isSubmitted"
+                                         placeholder="Password" formControlName="password">
+                                    <span class="input-group-text text-muted" (click)="visibilityToggle()"
+                                        style="cursor: pointer;">
+                                        <i [classList]="passwordVisible?'fas fa-eye':'fas fa-eye-slash'"></i>
+                                    </span>
+                                </div>
+                                <small *ngIf="registerForm.password.invalid && isSubmitted" class="d-block text-danger">
+                                    Contraseña es obligatorio
+                                </small>
+                                <div class="form-check my-4">
+                                    <input id="agree" name="agree" class="form-check-input" type="checkbox">
+                                    <label class="form-check-label" for="agree">
+                                        Estoy de acuerdo con los <a href="#">Terminoss</a> de <a href="#">Privacidad</a>.
+                                    </label>
+                                </div>
+                                <div class="d-grid my-4">
+                                    <button class="btn btn-dark btn-lg" type="submit" (click)="onSubmit()">
+                                        Registrarme
+                                    </button>
+                                </div>
+                                <div class="col-12" *ngIf="isSubmitted && authError">
+                                    <small class="d-block text-danger">{{ authMessage }}</small>
+                                </div>
+                                <p class="text-2 text-muted text-center">
+                                    ¿Ya eres mienbro? <a routerLink="/auth">Acceder</a>
+                                </p>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
