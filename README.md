@@ -69,7 +69,8 @@ List the main features of your application. You can include a list or a more det
 
 ## Video preview:
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/QJ_GoUHlb3A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+[![How to create an E-COMMERCE with ANGULAR 16 - 2023](https://img.youtube.com/vi/QJ_GoUHlb3A/0.jpg)](https://www.youtube.com/watch?v=QJ_GoUHlb3A)
+
 
 
 ## Contribution
