@@ -1,5 +1,5 @@
 <font color="red" size="4">  "This GITHUB repository is only a NON-FUNCTIONAL demonstration of the application. Files and directories are missing for its proper functioning.
-If you want to acquire the complete repository, you can do so by supporting my work at: XXXXXXXXXXXXXXX"</font>
+If you want to acquire the complete repository, you can do so by supporting my work at: [Contribution](#contribution)"</font>
 # Custom template of Angular e-commerce
 
 Web application that serves as a base template for customizing your own store. The project was created with Angular 16 (compatible up to version 12), RxJS, and Bootstrap. It is fully responsive.
@@ -32,6 +32,7 @@ Before installing the application, make sure you have Node.js and Angular CLI in
 3. Install the dependencies: `npm install`.
 4. Start the development server: `ng serve -o`.
 5. Open your browser and visit: `http://localhost:4200/`.
+6. Login with defaults credentials.
 
 ## Usage
 
@@ -68,11 +69,12 @@ List the main features of your application. You can include a list or a more det
 
 ## Video preview:
 
-<!-- insert youtube video here -->
+<iframe width="560" height="315" src="https://www.youtube.com/embed/QJ_GoUHlb3A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 
 ## Contribution
 
-<!--  insert sites here -->
+💚 Buymeacoffee: https://www.buymeacoffee.com/mrwasu
 
 ## Support
 
